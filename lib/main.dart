@@ -1,5 +1,6 @@
 import 'package:bloc_statemanagement/controller/apicontroller/api_bloc.dart';
-import 'package:bloc_statemanagement/view/api_page.dart';
+import 'package:bloc_statemanagement/controller/todocontroller/todo_bloc.dart';
+import 'package:bloc_statemanagement/view/todo_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,8 +20,11 @@ class MyApp extends StatelessWidget {
         BlocProvider<ApiBloc>(
           create: (context) => ApiBloc()..add(const FetchApiData(page: 0)),
         ),
+        BlocProvider<TodoBloc>(
+          create: (context) => TodoBloc(),
+        )
       ],
-      child:const MaterialApp(home: ApiPage()),
+      child: const MaterialApp(home: TodoPage()),
     );
   }
 }
